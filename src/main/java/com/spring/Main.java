@@ -1,6 +1,6 @@
 package com.spring;
 
-import com.spring.repository.DbUtil;
+import com.spring.service.Postgresql.PostgresqlDumpFileOperation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[]args) throws SQLException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-dbConnection.xml");
-        DbUtil dbUtil = ctx.getBean(DbUtil .class);
-        System.out.println(dbUtil.getConnection());
-        dbUtil.getConnection();
+        PostgresqlDumpFileOperation postgresqlDumpFileOperation = ctx.getBean(PostgresqlDumpFileOperation.class);
+        postgresqlDumpFileOperation.cleanDumpFile("1.txt","C:\\docker\\Postgresql\\ucmdb-fullpackage-create.SQL","C:\\docker\\Postgresql\\ucmdb-fullpackage-insert.SQL");
+//        postgresqlDumpFileOperation.cleanDumpFile("C:\\docker\\Postgresql\\ucmdb-fullpackage.SQL","C:\\docker\\Postgresql\\ucmdb-fullpackage-create.SQL","C:\\docker\\Postgresql\\ucmdb-fullpackage-insert.SQL");
 
 
     }
