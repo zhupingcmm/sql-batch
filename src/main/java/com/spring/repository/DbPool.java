@@ -20,15 +20,4 @@ public class DbPool {
     public BasicDataSource createPool(){
         return basicDataSource;
     }
-
-//    public Connection getConnection(){
-//        Connection conn = null;
-//        try {
-//            conn =basicDataSource.getConnection();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return conn;
-//    }
-
 }
